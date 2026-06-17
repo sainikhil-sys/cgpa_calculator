@@ -113,7 +113,7 @@ export default function Home() {
                 GradeFlow AI
               </h1>
               <p className="text-[10px] font-bold text-blue-500 uppercase tracking-wider mt-1.5 leading-none">
-                Smart Academic Dashboard
+                Academic Performance Dashboard
               </p>
             </div>
           </div>
@@ -121,26 +121,21 @@ export default function Home() {
           <div className="flex items-center gap-4">
             {loading ? (
               <div className="w-5 h-5 border-2 border-blue-500 border-t-transparent rounded-full animate-spin"></div>
-            ) : user ? (
-              <Link
-                href="/dashboard"
-                className="px-5 py-2.5 bg-blue-600 hover:bg-blue-500 text-white rounded-xl text-xs font-bold transition-all cursor-pointer shadow-md shadow-blue-500/15"
-              >
-                Go to Dashboard
-              </Link>
             ) : (
               <>
+                {!user && (
+                  <Link
+                    href="/login"
+                    className="text-xs font-bold text-slate-350 hover:text-white transition-colors cursor-pointer"
+                  >
+                    Login
+                  </Link>
+                )}
                 <Link
-                  href="/login"
-                  className="text-xs font-bold text-slate-300 hover:text-white transition-colors"
+                  href="/dashboard"
+                  className="px-5 py-2.5 bg-blue-600 hover:bg-blue-500 text-white rounded-xl text-xs font-black transition-all cursor-pointer shadow-md shadow-blue-500/15"
                 >
-                  Log In
-                </Link>
-                <Link
-                  href="/signup"
-                  className="px-5 py-2.5 bg-blue-600 hover:bg-blue-500 text-white rounded-xl text-xs font-bold transition-all cursor-pointer shadow-md shadow-blue-500/15"
-                >
-                  Sign Up
+                  Dashboard
                 </Link>
               </>
             )}
